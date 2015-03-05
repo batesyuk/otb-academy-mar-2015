@@ -1,3 +1,14 @@
+def basket_count(items)
+  count = 0
+  price = 8
+  total = Array.new
+  while count < items.length do
+    total <<  items[count] * 8
+    count += 1
+  end
+  total.reduce(:+)
+end
+
 RSpec.describe "This checkout has" do
 
   it "one book without discount" do
