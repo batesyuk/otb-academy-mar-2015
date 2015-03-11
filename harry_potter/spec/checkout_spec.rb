@@ -1,28 +1,4 @@
-def basket_count(items)
-  count = 0
-  price = 8
-
-  total = Array.new
-  while count < items.length do
-    calc = items[count] * 8
-
-    if items.length == 5
-      total << calc * 0.75
-    elsif items.length == 4
-      total << calc * 0.8
-    elsif items.length == 3
-      total << calc * 0.9
-    elsif items.length == 2
-      total << calc * 0.95
-    else
-      total << calc
-    end
-    count += 1
-  end
-
-  total.reduce(:+)
-
-end
+require 'checkout'
 
 RSpec.describe "This checkout has" do
 
@@ -69,7 +45,7 @@ RSpec.describe "This checkout has" do
   end
 
   it "Max discount and multiple trilogy" do
-    items = [2, 2, 2, 1, 1]
+    items = [2, 2, 2, 1, 1  ]
     expect(basket_count(items)).to eq(51.2)
     # 4*8*.8+4*8*.8
   end
