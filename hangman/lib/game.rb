@@ -27,7 +27,7 @@ class Game
 	end
 
 	def handle_vaild_guess(guess)
-		if @answer.include?(guess)
+		if @answer.downcase.include?(guess.downcase)
 			handle_correct_guess(guess)
 		else
 			handle_incorrect_guess(guess)
