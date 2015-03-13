@@ -1,8 +1,22 @@
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css">
 
+<body>
 
-<form action="/" method="post">
+	<div class="index-container">
+		<div class="wrapper">
+			<h1>Hangman</h1>
+		</div>
+	</div>
 
-	<label for="input-guess"></label>
-	<input type="text" size="1" id="input-guess"/>
+	<div class="wrapper">
+		<h3>Please enter a word below to begin</h3>
 
-</form>
+		<form action="/" method="post" class="index-form">
+
+			<input name="new_answer" type="text" placeholder="Enter Word Here"/>
+			<input name="Submit" type="submit" value="Lets go!" />
+		</form>
+
+	</div>
+</body>

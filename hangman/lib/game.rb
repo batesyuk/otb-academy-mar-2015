@@ -10,9 +10,9 @@ class Game
 		@incorrect_guesses = []
 	end
 
-	def guess(guess) 
-		if valid_guess(guess) 
-			handle_vaild_guess(guess)
+	def guess(guess)
+		if valid_guess(guess)
+			handle_valid_guess(guess)
 		else
 			puts 'Invalid guess try again'
 		end
@@ -26,7 +26,7 @@ class Game
 		@correct_guesses.uniq.size == @answer.downcase.split.join.chars.uniq.size
 	end
 
-	def handle_vaild_guess(guess)
+	def handle_valid_guess(guess)
 		if @answer.include?(guess)
 			handle_correct_guess(guess)
 		else

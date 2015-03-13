@@ -1,0 +1,36 @@
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+  <div class="lives-container">
+    <div class="wrapper">
+      <p>Lives Remaining: <span><%= @game.lives %></span></p>
+    </div>
+  </div>
+
+  <div class="wrapper">
+
+    <div class="current-word-wrapper">
+      <h2 class="current"><%= @game.answer_array.join %></h2>
+    </div>
+
+    <div class="two_columns">
+      <div class="col-1">
+        <div class="hangman lives-<%= @game.lives %>"></div>
+      </div>
+
+      <div class="col-1">
+
+        <form action="/guess" method="post">
+          <input name="guess" type="text" autofocus/>
+          <input name="Submit" type="submit" value="Make Guess" />
+        </form>
+
+        <h4>Incorrect Guesses</h4>
+        <span class="incorrect"><%= @game.incorrect_guesses.join %></span>
+      </div>
+    </div>
+
+  </div>
+</body>
