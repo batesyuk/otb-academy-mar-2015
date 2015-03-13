@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+require_relative '../lib/game'
+
+def get_input
+ 	STDIN.gets.chomp
+end
+
+print "Welcome to hangman!\n"
+game = Game.new('hangman', 10)
+p game.answer_array
+
+while game.game_over == false
+  print 'Enter Guess: '
+  guess = get_input
+
+  successfull_guess = game.guess(guess)
+  if successfull_guess
+    p game.answer_array
+  else
+    puts "You have guessed wrong :- #{game.incorrect_guesses}"
+    puts "Lives remaining :- #{game.lives}"
+  end
+end
+
+if game.game_complete
+  puts 'YOU WON!!!'
+else
+  puts 'YOU LOST!!!'
+end
