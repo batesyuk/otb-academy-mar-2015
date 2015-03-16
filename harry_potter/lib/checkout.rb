@@ -21,8 +21,6 @@ class Checkout
     }
   end
 
-
-
   def calculate_basket
       create_sets
       basket_count
@@ -32,13 +30,10 @@ class Checkout
     @sets = Array.new
 
     while @items.length > 0
-      parts = @items.uniq
-      @sets << parts
-      parts.each { |x| @items.delete_at(@items.index(x)) }
+      @parts = @items.uniq
+      @sets << @parts
+      @parts.each { |x| @items.delete_at(@items.index(x)) }
     end
-
-    @sets
-    p @sets
   end
 
   def basket_count
@@ -59,7 +54,7 @@ class Checkout
       @total << @first + @last
 
     else
-      @total << @sets.first.length * RRP * handle_discount[@sets.first.length]
+      @total << @parts.length * RRP * handle_discount[@parts.length]
     end
 
     @total = @total.reduce(:+)
