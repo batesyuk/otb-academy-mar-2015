@@ -20,7 +20,7 @@ RSpec.describe 'Game' do
 		end
 	end
 
-	context 'when sent a correct letter guess' do 
+	context 'when sent a correct letter guess' do
 
 		it 'checks the letter sent returns true' do
 			expect(game.guess('t')).to eq(true)
@@ -35,7 +35,7 @@ RSpec.describe 'Game' do
 			expect(game.correct_guesses).to eq(['t'])
 		end
 
-		it 'reveals the letter in the answer array' do 
+		it 'reveals the letter in the answer array' do
 			game.guess('t')
 			expect(game.answer_array).to eq(['T', '_', '_', 't', ' ', '_', '_', '_', '_', '_'])
 		end
@@ -47,13 +47,13 @@ RSpec.describe 'Game' do
 			game.guess('p')
 			game.guess('a')
 			game.guess('c')
-			
+
 			expect(game.answer_array).to eq(['T', 'e', 's', 't', ' ', 's', 'p', 'a', 'c', 'e'])
 			expect(game.game_complete).to eq(true)
 		end
 	end
 
-	context 'when sent an incorrect letter guess' do 
+	context 'when sent an incorrect letter guess' do
 
 		it 'checks the letter sent returns false' do
 			expect(game.guess('q')).to eq(false)
@@ -70,15 +70,15 @@ RSpec.describe 'Game' do
 		end
 
 		it 'sets game over if zero lives remaining' do
-			game = Game.new("Test", 2)			
+			game = Game.new("Test", 2)
 			game.guess('q')
 			game.guess('r')
 			expect(game.game_over).to eq(true)
 		end
 	end
 
-	context 'when sent an invalid letter guess' do 
-		
+	context 'when sent an invalid letter guess' do
+
 		it 'does not remove any lives' do
 			game.guess('aeiou')
 			expect(game.lives).to eq(lives)
