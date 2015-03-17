@@ -22,7 +22,7 @@ class Checkout
   end
 
   def calculate_basket
-      create_sets
+      find_best_deal
       basket_count
   end
 
@@ -33,6 +33,15 @@ class Checkout
       @parts = @items.uniq
       @sets << @parts
       @parts.each { |x| @items.delete_at(@items.index(x)) }
+    end
+  end
+
+  def find_best_deal
+    create_sets
+
+    if @sets.first.length == 5 && @sets.last.length == 3
+      pop = @sets[0].pop
+      @sets[1] << pop
     end
   end
 
